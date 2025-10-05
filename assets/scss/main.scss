@@ -2,3 +2,5 @@
 @use './utils/variables' as *;
 @use './commons.scss';
 @use './layouts/login';
+@use './layouts/_default';
+@use './layouts/_sidebar';

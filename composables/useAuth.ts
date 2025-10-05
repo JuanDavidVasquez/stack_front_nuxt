@@ -51,7 +51,7 @@ export const useAuth = () => {
 
     // Redireccionar al login
     setTimeout(async () => {
-      await router.push(nuxtApp.$localePath({ name: 'index' }))
+      await router.push(nuxtApp.$localePath({ name: 'home' }))
     }, 500)
   }
 

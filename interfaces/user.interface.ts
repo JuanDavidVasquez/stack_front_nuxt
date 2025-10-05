@@ -1,5 +1,7 @@
 export interface User {
   id: string
   email: string
-  name: string
+  fullname?: string
+  documentId?: string
+  phone?: string
 }

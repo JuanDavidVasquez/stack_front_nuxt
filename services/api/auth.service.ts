@@ -9,6 +9,8 @@ export const authService = {
    */
   async login(credentials: LoginForm): Promise<responseApi> {
     const nuxtApp = useNuxtApp()
+    const mainStore = useMainStore()
+    mainStore.loading = true
     
     // Encriptar password
     const { iv, password: encryptedPassword } = useEncrypt(credentials.password)
@@ -24,12 +26,15 @@ export const authService = {
       version: (nuxtApp.$version as string) || '0.0.1',
     }
 
-    return await useApiServices({
-      method: 'POST',
+    const result = await useApiServices({
+       method: 'POST',
       url: 'onboarding/login',
       data: payload,
       typeHeader: 'access'
     })
+    mainStore.loading = false
+
+    return result
   },
 
   /**

@@ -109,7 +109,7 @@ const handleLogin = async () => {
     if (!result.status) {
       error.value = result.message
     }
-    // Si fue exitoso, el composable ya redirige automáticamente a /dashboard
+    
     
   } catch (err: any) {
     console.error('Login error:', err)

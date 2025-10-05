@@ -1,0 +1,333 @@
+// _sidebar.scss
+@use "../utils/variables" as *;
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: $bg-main;
+}
+
+// ============================================
+// SIDEBAR
+// ============================================
+
+.sidebar {
+  width: 280px;
+  background: $white;
+  border-right: $border-width-1 solid $gray-200;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-md;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-6 $spacing-4;
+  border-bottom: $border-width-1 solid $gray-200;
+
+  h3 {
+    font-family: $font-semibold;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $gray-950;
+    margin: 0;
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-2;
+  color: $gray-600;
+  font-size: $font-size-2xl;
+  display: none;
+  border-radius: $radius-md;
+  transition: all $transition-base $ease-out;
+
+  &:hover {
+    color: $gray-950;
+    background: $gray-100;
+  }
+
+  &:focus {
+    outline: none;
+    background: $gray-100;
+  }
+}
+
+// ============================================
+// SIDEBAR NAVIGATION
+// ============================================
+
+.sidebar-nav {
+  flex: 1;
+  padding: $spacing-4 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-300;
+    border-radius: $radius-full;
+
+    &:hover {
+      background: $gray-400;
+    }
+  }
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  padding: $spacing-3 $spacing-5;
+  margin: $spacing-1 $spacing-3;
+  border-radius: $radius-md;
+  color: $gray-700;
+  text-decoration: none;
+  transition: all $transition-base $ease-out;
+  font-family: $font-medium;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+
+  &:hover {
+    background: $secondary-5;
+    color: $secondary;
+  }
+
+  &.router-link-active {
+    background: $secondary;
+    color: $white;
+    font-family: $font-semibold;
+    font-weight: $font-weight-semibold;
+  }
+
+  i {
+    font-size: $font-size-xl;
+    width: $spacing-6;
+    text-align: center;
+  }
+}
+
+// ============================================
+// SIDEBAR FOOTER
+// ============================================
+
+.sidebar-footer {
+  padding: $spacing-4;
+  border-top: $border-width-1 solid $gray-200;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  width: 100%;
+  padding: $spacing-0 $spacing-4;
+  background: none;
+  border-radius: $radius-md;
+  color: $error-messages;
+  cursor: pointer;
+  font-family: $font-medium;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  transition: all $transition-base $ease-out;
+
+  &:hover {
+    background: $error-messages;
+    color: $white;
+    box-shadow: $shadow-sm;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($error-messages, 0.2);
+  }
+
+  i {
+    font-size: $font-size-lg;
+  }
+}
+
+// ============================================
+// MAIN CONTENT
+// ============================================
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  padding: $spacing-4 $spacing-6;
+  background: $white;
+  border-bottom: $border-width-1 solid $gray-200;
+  box-shadow: $shadow-sm;
+
+  h2 {
+    font-family: $font-semibold;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $gray-950;
+    margin: 0;
+  }
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-2;
+  color: $gray-600;
+  font-size: $font-size-2xl;
+  display: none;
+  border-radius: $radius-md;
+  transition: all $transition-base $ease-out;
+
+  &:hover {
+    color: $gray-950;
+    background: $gray-100;
+  }
+
+  &:focus {
+    outline: none;
+    background: $gray-100;
+  }
+}
+
+.content {
+  flex: 1;
+  padding: $spacing-8;
+  overflow-y: auto;
+  background: $bg-main;
+
+  // Scrollbar personalizado para el contenido
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray-100;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-400;
+    border-radius: $radius-full;
+
+    &:hover {
+      background: $gray-500;
+    }
+  }
+}
+
+.app-footer {
+  padding: $spacing-4;
+  text-align: center;
+  background: $white;
+  border-top: $border-width-1 solid $gray-200;
+  color: $gray-600;
+  font-family: $font-regular;
+  font-size: $font-size-sm;
+
+  p {
+    margin: 0;
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+
+@media (max-width: $breakpoint-md) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: $z-modal;
+    transform: translateX(0);
+    transition: transform $transition-base $ease-out;
+
+    &.hidden {
+      transform: translateX(-100%);
+    }
+  }
+
+  .close-btn {
+    display: flex;
+  }
+
+  .toggle-btn {
+    display: flex;
+  }
+
+  .content {
+    padding: $spacing-4;
+  }
+
+  .app-header {
+    padding: $spacing-3 $spacing-4;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .sidebar {
+    position: static;
+  }
+
+  .toggle-btn {
+    display: none;
+  }
+
+  .close-btn {
+    display: none;
+  }
+}
+
+// ============================================
+// OVERLAY PARA MOBILE
+// ============================================
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($black, 0.5);
+  z-index: $z-modal-backdrop;
+  opacity: 0;
+  transition: opacity $transition-base $ease-out;
+
+  &.active {
+    display: block;
+    opacity: 1;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
