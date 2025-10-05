@@ -31,6 +31,15 @@ export default {
       placeholder: 'Escribir contraseña',
       tooltip:
         'La contraseña debe contener al menos una minúscula, una mayúscula y un número',
+      rules:{
+        min: 'La contraseña debe tener al menos 6 caracteres',
+        max: 'La contraseña no debe exceder los 50 caracteres',
+        valid: 'Mín. 8 caracteres alfanuméricos: 1 mayúscula, 1 minúscula',
+        confirm: 'Las contraseñas deben coincidir',
+        obligatory: 'La contraseña es obligatoria',
+        email: 'El email es obligatorio',
+        invalid: 'El email debe ser válido',
+      }
     },
     passwordNew: {
       label: 'Nueva contraseña',

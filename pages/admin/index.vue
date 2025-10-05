@@ -80,4 +80,9 @@ onMounted(async () => {
     await loadAdmins()
   }
 })
+
+// Definir que requiere autenticación
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
