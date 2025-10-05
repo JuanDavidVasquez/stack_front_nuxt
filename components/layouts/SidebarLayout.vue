@@ -4,8 +4,8 @@
     <!-- Sidebar -->
     <div v-if="sidebarVisible" class="sidebar">
       <div class="sidebar-header">
-        <h3>Menú</h3>
-        <button @click="sidebarVisible = false" class="close-btn">
+        <h3>{{ t('sideBar.menu') }}</h3>
+        <button @click="sidebarVisible = false" class="close-btn" :aria-label="t('sideBar.close')">
           <i class="pi pi-times"></i>
         </button>
       </div>
@@ -19,7 +19,7 @@
           @click="handleRouteClick"
         >
           <i :class="item.icon"></i>
-          <span>{{ item.label }}</span>
+          <span>{{ t(item.label) }}</span>
         </NuxtLink>
       </nav>
 
@@ -30,13 +30,13 @@
           class="logout-btn"
         >
           <i class="pi pi-sign-out"></i>
-          <span>Cerrar Sesión</span>
+          <span>{{ t('sideBar.logout') }}</span>
         </button>
       </div>
 
-         <!-- Footer -->
+      <!-- Footer -->
       <footer class="app-footer">
-        <p>&copy; 2025 Mi Aplicación</p>
+        <p>{{ t('sideBar.footer.copyright') }}</p>
       </footer>
     </div> 
   </div>
@@ -45,29 +45,28 @@
 <script setup lang="ts">
 const { logout, isAuthenticated } = useAuth();
 const route = useRoute();
-const mainStore = useMainStore()
+const mainStore = useMainStore();
+const { t } = useI18n();
 
 const sidebarVisible = ref(true);
 
 const menuItems = [
   {
-    label: "Inicio",
+    label: "sideBar.home",
     icon: "pi pi-home",
     route: "/home",
   },
   {
-    label: "Admin",
+    label: "sideBar.admin",
     icon: "pi pi-users",
     route: "/admin",
   },
 ];
 
-
 const handleLogout = async () => {
   try {
     mainStore.loading = true
     
-    // Ejecuta logout y espera mínimo 1 segundo
     await Promise.all([
       logout(),
       new Promise(resolve => setTimeout(resolve, 1000))
@@ -86,7 +85,6 @@ const handleRouteClick = () => {
   }
 };
 
-// Cerrar sidebar en mobile al cambiar de ruta
 watch(
   () => route.path,
   () => {

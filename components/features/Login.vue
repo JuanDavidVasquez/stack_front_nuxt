@@ -2,8 +2,8 @@
   <div class="login-container">
     <div class="login-card">
       <div class="login-header">
-        <h1 class="login-title">¡Bienvenido!</h1>
-        <p class="login-subtitle">Ingresa tu correo y contraseña para iniciar</p>
+        <h1 class="login-title">{{ t('title.welcome') }}</h1>
+        <p class="login-subtitle">{{ t('login.subtitle') }}</p>
       </div>
 
       <form @submit.prevent="handleLogin" class="login-form">
@@ -13,27 +13,27 @@
         </div>
 
         <div class="form-group">
-          <label for="email" class="form-label">Email</label>
+          <label for="email" class="form-label">{{ t('form.email.label') }}</label>
           <input
             id="email"
             v-model="formData.email"
             type="email"
             class="form-input"
-            placeholder="correo@ejemplo.com"
+            :placeholder="t('form.email.placeholder')"
             required
             :disabled="isLoading"
           />
         </div>
 
         <div class="form-group">
-          <label for="password" class="form-label">Contraseña</label>
+          <label for="password" class="form-label">{{ t('form.password.label') }}</label>
           <div class="password-input-wrapper">
             <input
               id="password"
               v-model="formData.password"
               :type="showPassword ? 'text' : 'password'"
               class="form-input"
-              placeholder="••••••••"
+              :placeholder="t('form.password.placeholder')"
               required
               :disabled="isLoading"
             />
@@ -58,17 +58,17 @@
 
         <div class="form-footer">
           <NuxtLink to="/password-recovery" class="forgot-password">
-            ¿Olvidaste tu contraseña?
+            {{ t('login.forgotPassword') }}
           </NuxtLink>
         </div>
 
         <button type="submit" class="btn-submit" :disabled="isLoading">
-          {{ isLoading ? 'Ingresando...' : 'Ingresar' }}
+          {{ isLoading ? t('login.loading') : t('login.login') }}
         </button>
       </form>
 
       <div class="login-extra">
-        <p>¿No tienes cuenta? <NuxtLink to="/register" class="link-register">Regístrate</NuxtLink></p>
+        <p>{{ t('login.new') }} <NuxtLink to="/register" class="link-register">{{ t('login.register') }}</NuxtLink></p>
       </div>
     </div>
   </div>
@@ -76,10 +76,12 @@
 
 <script setup lang="ts">
 import type { LoginForm } from '~/interfaces/login.interface'
+import { loginFormSchema } from '~/schemas/login.schema'
 
 // Usar el composable de autenticación
 const { login, isAuthenticated } = useAuth()
 const router = useRouter()
+const { t } = useI18n()
 
 // Estado del formulario
 const formData = reactive<LoginForm>({
@@ -103,6 +105,7 @@ const handleLogin = async () => {
   error.value = ''
   
   try {
+    loginFormSchema.parse(formData)
     const result = await login(formData)
     
     // Si el login falló, mostrar el mensaje de error

@@ -1,12 +1,3 @@
 @use "../utils/variables" as *;
 @use "../utils/font";
 
-.app-layout{
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    min-height: 100vh;
-    max-width: 100vw;
-    background: $bg-main;
-    color: $gray-900;
-    overflow: hidden;
-}

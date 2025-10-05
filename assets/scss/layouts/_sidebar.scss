@@ -3,8 +3,9 @@
 
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background: $bg-main;
+  overflow: hidden;
 }
 
 // ============================================
@@ -135,7 +136,7 @@
   justify-content: center;
   gap: $spacing-2;
   width: 100%;
-  padding: $spacing-0 $spacing-4;
+  padding: $spacing-1 $spacing-4;
   background: none;
   border-radius: $radius-md;
   color: $error-messages;

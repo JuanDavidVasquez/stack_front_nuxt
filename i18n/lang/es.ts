@@ -157,4 +157,25 @@ export default {
     coupons: 'Cupones',
     notFound: '404 - Página no encontrada',
   },
+  login: {
+    invalidCredentials: 'Credenciales inválidas, por favor intente nuevamente',
+    accountInactive: 'Su cuenta está inactiva, por favor contacte al administrador',
+    success: '¡Inicio de sesión exitoso! Redirigiendo...',
+    subtitle: 'Ingresa tu correo y contraseña para iniciar',
+    forgotPassword: '¿Olvidaste tu contraseña?',
+    new: '¿No tienes una cuenta?',
+    register: 'Regístrate',
+    login: 'Ingresar',
+    loading: 'Ingresando...',
+  },
+  sideBar: {
+    menu: 'Menú',
+    close: 'Cerrar',
+    home: 'Inicio',
+    admin: 'Administración',
+    logout: 'Cerrar Sesión',
+    footer: {
+      copyright: '© 2025 Mi Aplicación'
+    }
+  }
 }

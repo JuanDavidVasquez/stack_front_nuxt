@@ -2,6 +2,7 @@
 import type { responseApi } from '~/interfaces/req.interface'
 import type { LoginForm } from '~/interfaces/login.interface'
 import { useEncrypt } from '~/composables/utils/crypto'
+import { loginPayloadSchema } from '~/schemas/login.schema'
 
 export const authService = {
   /**
@@ -21,10 +22,12 @@ export const authService = {
       password: encryptedPassword,
       iv: iv,
       platform: 'backoffice',
-      type: 'lc', // 'lc','fb','gm','apple','bulk'
+      type: 'lc',
       pushToken: useCookie('pushToken').value || '',
       version: (nuxtApp.$version as string) || '0.0.1',
     }
+
+    loginPayloadSchema.parse(payload)
 
     const result = await useApiServices({
        method: 'POST',
