@@ -1,0 +1,496 @@
+// ============================================
+// COMMONS.SCSS - Estilos Comunes/Globales
+// ============================================
+
+// Las variables están disponibles globalmente gracias a additionalData en nuxt.config.ts
+
+// ============================================
+// RESET Y BASE STYLES
+// ============================================
+@use './utils//variables' as *;
+@use './utils/font';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-regular;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $gray-700;
+  background: $bg-main;
+  min-height: 100vh;
+}
+
+// ============================================
+// TIPOGRAFÍA BASE
+// ============================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: $line-height-tight;
+  color: $gray-950;
+}
+
+p { margin: 0; }
+
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: color $transition-base $ease-out;
+  
+  &:hover {
+    color: $secondary-1;
+  }
+}
+
+// ============================================
+// FORMS
+// ============================================
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  font-family: $font-medium;
+  cursor: pointer;
+  border: none;
+  background: none;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// SCROLLBAR PERSONALIZADO
+// ============================================
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-400;
+  border-radius: $radius-full;
+  
+  &:hover {
+    background: $gray-500;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $gray-400 $gray-100;
+}
+
+// ============================================
+// LAYOUT UTILITIES
+// ============================================
+
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline-block { display: inline-block; }
+
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-around { justify-content: space-around; }
+
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+.gap-1 { gap: $spacing-1; }
+.gap-2 { gap: $spacing-2; }
+.gap-3 { gap: $spacing-3; }
+.gap-4 { gap: $spacing-4; }
+.gap-5 { gap: $spacing-5; }
+.gap-6 { gap: $spacing-6; }
+.gap-8 { gap: $spacing-8; }
+
+// ============================================
+// SPACING UTILITIES
+// ============================================
+
+// Margin
+.m-0 { margin: $spacing-0; }
+.m-1 { margin: $spacing-1; }
+.m-2 { margin: $spacing-2; }
+.m-3 { margin: $spacing-3; }
+.m-4 { margin: $spacing-4; }
+.m-5 { margin: $spacing-5; }
+.m-6 { margin: $spacing-6; }
+.m-8 { margin: $spacing-8; }
+.m-auto { margin: auto; }
+
+.mt-0 { margin-top: $spacing-0; }
+.mt-1 { margin-top: $spacing-1; }
+.mt-2 { margin-top: $spacing-2; }
+.mt-3 { margin-top: $spacing-3; }
+.mt-4 { margin-top: $spacing-4; }
+.mt-5 { margin-top: $spacing-5; }
+.mt-6 { margin-top: $spacing-6; }
+.mt-8 { margin-top: $spacing-8; }
+
+.mb-0 { margin-bottom: $spacing-0; }
+.mb-1 { margin-bottom: $spacing-1; }
+.mb-2 { margin-bottom: $spacing-2; }
+.mb-3 { margin-bottom: $spacing-3; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-5 { margin-bottom: $spacing-5; }
+.mb-6 { margin-bottom: $spacing-6; }
+.mb-8 { margin-bottom: $spacing-8; }
+
+.ml-0 { margin-left: $spacing-0; }
+.ml-2 { margin-left: $spacing-2; }
+.ml-4 { margin-left: $spacing-4; }
+.ml-auto { margin-left: auto; }
+
+.mr-0 { margin-right: $spacing-0; }
+.mr-2 { margin-right: $spacing-2; }
+.mr-4 { margin-right: $spacing-4; }
+.mr-auto { margin-right: auto; }
+
+// Padding
+.p-0 { padding: $spacing-0; }
+.p-1 { padding: $spacing-1; }
+.p-2 { padding: $spacing-2; }
+.p-3 { padding: $spacing-3; }
+.p-4 { padding: $spacing-4; }
+.p-5 { padding: $spacing-5; }
+.p-6 { padding: $spacing-6; }
+.p-8 { padding: $spacing-8; }
+
+.pt-0 { padding-top: $spacing-0; }
+.pt-2 { padding-top: $spacing-2; }
+.pt-4 { padding-top: $spacing-4; }
+.pt-6 { padding-top: $spacing-6; }
+
+.pb-0 { padding-bottom: $spacing-0; }
+.pb-2 { padding-bottom: $spacing-2; }
+.pb-4 { padding-bottom: $spacing-4; }
+.pb-6 { padding-bottom: $spacing-6; }
+
+.px-2 { padding-left: $spacing-2; padding-right: $spacing-2; }
+.px-4 { padding-left: $spacing-4; padding-right: $spacing-4; }
+.px-6 { padding-left: $spacing-6; padding-right: $spacing-6; }
+
+.py-2 { padding-top: $spacing-2; padding-bottom: $spacing-2; }
+.py-4 { padding-top: $spacing-4; padding-bottom: $spacing-4; }
+.py-6 { padding-top: $spacing-6; padding-bottom: $spacing-6; }
+
+// ============================================
+// TEXT UTILITIES
+// ============================================
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ============================================
+// WIDTH & HEIGHT UTILITIES
+// ============================================
+
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+
+// ============================================
+// CONTAINER
+// ============================================
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacing-6;
+  }
+}
+
+// ============================================
+// CARD COMPONENT
+// ============================================
+
+.card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-6;
+  box-shadow: $shadow-base;
+  
+  &.card-hover {
+    transition: all $transition-base $ease-out;
+    
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ============================================
+// BUTTON COMPONENT
+// ============================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  padding: $spacing-3 $spacing-5;
+  font-family: $font-semibold;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  transition: all $transition-base $ease-out;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  // Primary
+  &.btn-primary {
+    background: $primary;
+    color: $secondary;
+    
+    &:hover:not(:disabled) {
+      background: $primary-1;
+      box-shadow: $shadow-md;
+    }
+  }
+  
+  // Secondary
+  &.btn-secondary {
+    background: $secondary;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background: $secondary-1;
+      box-shadow: $shadow-md;
+    }
+  }
+  
+  // Outline
+  &.btn-outline {
+    background: transparent;
+    border: 2px solid $secondary;
+    color: $secondary;
+    
+    &:hover:not(:disabled) {
+      background: $secondary;
+      color: $white;
+    }
+  }
+  
+  // Ghost
+  &.btn-ghost {
+    background: transparent;
+    color: $secondary;
+    
+    &:hover:not(:disabled) {
+      background: $secondary-5;
+    }
+  }
+  
+  // Danger
+  &.btn-danger {
+    background: $error-messages;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background: darken($error-messages, 10%);
+      box-shadow: $shadow-md;
+    }
+  }
+  
+  // Sizes
+  &.btn-sm {
+    padding: $spacing-2 $spacing-3;
+    font-size: $font-size-sm;
+  }
+  
+  &.btn-lg {
+    padding: $spacing-4 $spacing-6;
+    font-size: $font-size-lg;
+  }
+}
+
+// ============================================
+// BADGE COMPONENT
+// ============================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
+  
+  &.badge-primary {
+    background: $primary-4;
+    color: $secondary;
+  }
+  
+  &.badge-success {
+    background: rgba($confirmation-messages, 0.2);
+    color: darken($confirmation-messages, 20%);
+  }
+  
+  &.badge-error {
+    background: rgba($error-messages, 0.2);
+    color: darken($error-messages, 10%);
+  }
+  
+  &.badge-warning {
+    background: rgba($info-messages, 0.2);
+    color: darken($info-messages, 20%);
+  }
+  
+  &.badge-info {
+    background: rgba($instruction, 0.2);
+    color: darken($instruction, 10%);
+  }
+}
+
+// ============================================
+// ALERT COMPONENT
+// ============================================
+
+.alert {
+  padding: $spacing-4;
+  border-radius: $radius-md;
+  display: flex;
+  gap: $spacing-3;
+  
+  &.alert-success {
+    background: rgba($confirmation-messages, 0.1);
+    border-left: 4px solid $confirmation-messages;
+    color: darken($confirmation-messages, 20%);
+  }
+  
+  &.alert-error {
+    background: rgba($error-messages, 0.1);
+    border-left: 4px solid $error-messages;
+    color: darken($error-messages, 10%);
+  }
+  
+  &.alert-warning {
+    background: rgba($info-messages, 0.1);
+    border-left: 4px solid $info-messages;
+    color: darken($info-messages, 30%);
+  }
+  
+  &.alert-info {
+    background: rgba($instruction, 0.1);
+    border-left: 4px solid $instruction;
+    color: darken($instruction, 15%);
+  }
+}
+
+// ============================================
+// LOADING SPINNER
+// ============================================
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $gray-200;
+  border-top-color: $secondary;
+  border-radius: $radius-full;
+  animation: spin 0.8s linear infinite;
+  
+  &.spinner-sm {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+  
+  &.spinner-lg {
+    width: 60px;
+    height: 60px;
+    border-width: 6px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ============================================
+// DIVIDER
+// ============================================
+
+.divider {
+  height: 1px;
+  background: $gray-200;
+  border: none;
+  margin: $spacing-4 0;
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

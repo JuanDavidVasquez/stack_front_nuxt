@@ -1,0 +1,41 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npx nuxi build",
+    "dev:local": "npx nuxi dev --host --dotenv ./environments/.env.local",
+    "dev:staging": "npx nuxi dev --host --dotenv ./environments/.env.staging",
+    "dev:production": "npx nuxi dev --host --dotenv ./environments/.env.production",
+    "generate:local": "npx nuxi generate --dotenv ./environments/.env.local",
+    "generate:staging": "npx nuxi generate --dotenv ./environments/.env.staging",
+    "generate:production": "npx nuxi generate --dotenv ./environments/.env.production",
+    "preview": "npx nuxi preview",
+    "postinstall": "npx nuxi prepare",
+    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:prettier",
+    "lintfix": "prettier --write --list-different . && npm run lint:js --fix"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/ui": "^4.0.1",
+    "@nuxtjs/i18n": "^10.1.0",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@pinia/nuxt": "^0.11.2",
+    "@types/crypto-js": "^4.2.2",
+    "crypto-js": "^4.2.0",
+    "eslint": "^9.37.0",
+    "nuxt": "^4.1.2",
+    "pinia": "^3.0.3",
+    "pinia-plugin-persistedstate": "^4.5.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "sass-embedded": "^1.93.2"
+  }
+}

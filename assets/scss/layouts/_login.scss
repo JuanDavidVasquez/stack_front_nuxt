@@ -1,0 +1,363 @@
+// ============================================
+// LOGIN STYLES - Usando Design System
+// ============================================
+// ============================================
+// LAYOUT
+// ============================================
+@use "../utils/variables" as *;
+@use "../utils/font";
+
+.error-message {
+  padding: 12px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  color: #c33;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-main;
+  padding: $spacing-4;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $spacing-10;
+  box-shadow: $shadow-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-8 $spacing-6;
+  }
+}
+
+// ============================================
+// HEADER
+// ============================================
+
+.login-header {
+  text-align: center;
+  margin-bottom: $spacing-8;
+}
+
+.login-title {
+  font-family: $font-bold;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $gray-950;
+  margin: 0 0 $spacing-2 0;
+  line-height: $line-height-tight;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-3xl;
+  }
+}
+
+.login-subtitle {
+  font-family: $font-regular;
+  font-size: $font-size-md;
+  color: $gray-700;
+  margin: 0;
+  line-height: $line-height-relaxed;
+}
+
+// ============================================
+// FORM
+// ============================================
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.form-label {
+  font-family: $font-medium;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $gray-950;
+}
+
+.form-input {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  font-family: $font-regular;
+  font-size: $font-size-md;
+  border: $border-width-1 solid $gray-300;
+  border-radius: $radius-md;
+  transition: all $transition-base $ease-out;
+  color: $gray-950;
+  background: $white;
+
+  &::placeholder {
+    color: $gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $secondary;
+    box-shadow: 0 0 0 3px $secondary-5;
+  }
+
+  &:disabled {
+    background: $gray-100;
+    cursor: not-allowed;
+    color: $gray-500;
+  }
+
+  &:hover:not(:disabled):not(:focus) {
+    border-color: $gray-400;
+  }
+}
+
+// ============================================
+// PASSWORD INPUT
+// ============================================
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .form-input {
+    padding-right: $spacing-12;
+  }
+}
+
+.password-toggle {
+  position: absolute;
+  right: $spacing-3;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gray-500;
+  transition: color $transition-base $ease-out;
+  border-radius: $radius-base;
+
+  &:hover {
+    color: $gray-700;
+    background: $gray-100;
+  }
+
+  &:focus {
+    outline: none;
+    color: $secondary;
+    background: $secondary-5;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// ============================================
+// FORM FOOTER
+// ============================================
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -$spacing-2;
+}
+
+.forgot-password {
+  font-family: $font-medium;
+  font-size: $font-size-sm;
+  color: $secondary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base $ease-out;
+
+  &:hover {
+    color: $secondary-1;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $secondary;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+// ============================================
+// SUBMIT BUTTON
+// ============================================
+
+.btn-submit {
+  width: 100%;
+  padding: $spacing-3 $spacing-6;
+  font-family: $font-semibold;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $secondary;
+  background: $primary;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-base $ease-out;
+  margin-top: $spacing-2;
+
+  &:hover:not(:disabled) {
+    background: $primary-1;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: $button-disabled-color;
+    color: $gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $primary-4;
+  }
+}
+
+// ============================================
+// EXTRA INFO
+// ============================================
+
+.login-extra {
+  margin-top: $spacing-6;
+  padding-top: $spacing-6;
+  border-top: $border-width-1 solid $gray-200;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-family: $font-regular;
+    font-size: $font-size-base;
+    color: $gray-700;
+  }
+
+  .link-register {
+    font-family: $font-semibold;
+    color: $secondary;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+    transition: color $transition-base $ease-out;
+
+    &:hover {
+      color: $secondary-1;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 2px solid $secondary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+}
+
+// ============================================
+// ESTADOS DE ERROR
+// ============================================
+
+.form-group {
+  &.has-error {
+    .form-input {
+      border-color: $error-messages;
+
+      &:focus {
+        border-color: $error-messages;
+        box-shadow: 0 0 0 3px rgba($error-messages, 0.1);
+      }
+    }
+  }
+
+  .error-message {
+    font-family: $font-regular;
+    font-size: $font-size-sm;
+    color: $error-messages;
+    margin-top: $spacing-1;
+    display: flex;
+    align-items: center;
+    gap: $spacing-1;
+  }
+}
+
+// ============================================
+// LOADING STATE
+// ============================================
+
+.btn-submit {
+  position: relative;
+
+  &.is-loading {
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2px solid $secondary;
+      border-radius: $radius-full;
+      border-top-color: transparent;
+      animation: spinner 0.6s linear infinite;
+    }
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@media (max-width: $breakpoint-sm) {
+  .login-card {
+    box-shadow: $shadow-base;
+  }
+
+  .login-title {
+    font-size: $font-size-3xl;
+  }
+
+  .login-subtitle {
+    font-size: $font-size-sm;
+  }
+
+  .btn-submit {
+    padding: $spacing-3 $spacing-5;
+    font-size: $font-size-md;
+  }
+}

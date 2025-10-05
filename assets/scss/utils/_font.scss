@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'app-font-regular';
+  src: url('/fonts/Poppins-Regular.ttf');
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'app-font-semibold';
+  src: url('/fonts/Poppins-SemiBold.ttf');
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'app-font-medium';
+  src: url('/fonts/Poppins-Medium.ttf');
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'app-font-bold';
+  src: url('/fonts/Poppins-Bold.ttf');
+  font-display: swap;
+  font-style: normal;
+}
+
+.app-font-regular {
+  font-family: 'app-font-regular' !important;
+}
+
+.app-font-semibold {
+  font-family: 'app-font-semibold' !important;
+}
+
+.app-font-medium {
+  font-family: 'app-font-medium' !important;
+}
+
+.app-font-bold {
+  font-family: 'app-font-bold' !important;
+}
