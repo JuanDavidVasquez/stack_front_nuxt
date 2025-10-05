@@ -36,8 +36,9 @@ export default defineNuxtConfig({
   },
   css: [
     "@/assets/scss/main.scss",
-    'primeicons/primeicons.css'
+    'primeicons/primeicons.css',
   ],
+  
   
   vite: {
     css: {

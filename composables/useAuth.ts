@@ -10,6 +10,7 @@ export const useAuth = () => {
   const authStore = useAuthStore()
   const router = useRouter()
   const nuxtApp = useNuxtApp()
+  const { $resetAllStores } = useNuxtApp()
 
   // Estado reactivo del store
   const user = computed(() => authStore.currentUser)
@@ -47,8 +48,8 @@ export const useAuth = () => {
     }
 
     // Limpiar store
-    authStore.clearAuth()
-
+    //authStore.clearAuth()
+    $resetAllStores()
     // Redireccionar al login
     setTimeout(async () => {
       await router.push(nuxtApp.$localePath({ name: 'home' }))

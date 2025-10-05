@@ -9,10 +9,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       preset: Aura,
       options: {
         darkModeSelector: '.dark-mode',
-      }
+      },
     },
-    ripple: true
+    ripple: true,
   })
-  
+
   nuxtApp.vueApp.use(ToastService)
 })

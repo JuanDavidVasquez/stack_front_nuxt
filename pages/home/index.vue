@@ -7,8 +7,6 @@
 
 <script setup lang="ts">
 const { user } = useAuth()
-
-
 // Definir que requiere autenticación
 definePageMeta({
   middleware: 'auth'
