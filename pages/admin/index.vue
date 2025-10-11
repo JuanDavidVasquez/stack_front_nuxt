@@ -55,9 +55,22 @@ const {
 } = useAdmin()
 
 const columns = [
-  { field: 'id', header: 'ID' },
-  { field: 'fullname', header: 'Nombre' },
-  { field: 'email', header: 'Correo Electrónico' }
+  { 
+    field: 'id', 
+    header: 'ID' },
+  { 
+    field: 'fullname', 
+    header: 'Nombre' 
+  },
+  { 
+    field: 'email', 
+    header: 'Correo Electrónico' 
+  },
+  {
+    field: 'email',
+    header: 'Acciones',
+    type: 'checkbox',
+  }
 ]
 
 const rows = computed(() => {
